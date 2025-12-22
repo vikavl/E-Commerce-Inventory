@@ -10,6 +10,6 @@ public class OrderService {
         return null;
     }
 
-    public void createOrder(CreateOrderRequest createOrderRequest) {
+    public void placeOrder(CreateOrderRequest createOrderRequest) {
     }
 }
