@@ -25,7 +25,8 @@ public class Product implements Serializable {
     private BigDecimal price;
     @Column(name="stock_quantity")
     private int stockQuantity;
-    private String image_url;
+    @Column(name="image_url")
+    private String imageUrl;
     @Column(name="created_at")
     private LocalDateTime createdAt;
     @Column(name="updated_at")
