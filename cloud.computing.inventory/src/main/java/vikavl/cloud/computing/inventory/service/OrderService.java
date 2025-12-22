@@ -11,5 +11,12 @@ public class OrderService {
     }
 
     public void placeOrder(CreateOrderRequest createOrderRequest) {
+        /**
+         * todo
+         *  1. validate stock
+         *  2. decrease stock
+         *  3. create order + order items
+         * */
+
     }
 }
