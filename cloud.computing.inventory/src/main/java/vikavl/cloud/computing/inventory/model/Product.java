@@ -25,6 +25,7 @@ public class Product implements Serializable {
     private BigDecimal price;
     @Column(name="stock_quantity")
     private int stockQuantity;
+    private String image_url;
     @Column(name="created_at")
     private LocalDateTime createdAt;
     @Column(name="updated_at")
@@ -33,13 +34,14 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(Long id, String sku, String name, String description, BigDecimal price, int stockQuantity, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Product(Long id, String sku, String name, String description, BigDecimal price, int stockQuantity, String imageUrl, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.sku = sku;
         this.name = name;
         this.description = description;
         this.price = price;
         this.stockQuantity = stockQuantity;
+        this.image_url = imageUrl;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -79,6 +81,12 @@ public class Product implements Serializable {
     }
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
+    }
+    public String getImage_url() {
+        return image_url;
+    }
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
     public LocalDateTime getCreatedAt() {
         return createdAt;
