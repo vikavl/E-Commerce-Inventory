@@ -42,7 +42,7 @@ public class Product implements Serializable {
         this.description = description;
         this.price = price;
         this.stockQuantity = stockQuantity;
-        this.image_url = imageUrl;
+        this.imageUrl = imageUrl;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -83,11 +83,11 @@ public class Product implements Serializable {
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
     }
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
     public LocalDateTime getCreatedAt() {
         return createdAt;
