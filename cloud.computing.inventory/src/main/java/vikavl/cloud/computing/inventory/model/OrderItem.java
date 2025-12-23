@@ -6,7 +6,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Entity
+@Embeddable
 @Table(name="order_item")
 public class OrderItem implements Serializable {
     @Serial
