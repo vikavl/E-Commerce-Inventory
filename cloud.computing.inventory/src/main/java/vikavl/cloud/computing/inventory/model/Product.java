@@ -17,7 +17,7 @@ public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    private Long id;
+    private String id;
     // Stock Keeping Unit
     private String sku;
     private String name;
@@ -35,7 +35,7 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(Long id, String sku, String name, String description, BigDecimal price, int stockQuantity, String imageUrl, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Product(String id, String sku, String name, String description, BigDecimal price, int stockQuantity, String imageUrl, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.sku = sku;
         this.name = name;
@@ -47,10 +47,10 @@ public class Product implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getSku() {
