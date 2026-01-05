@@ -1,3 +1,13 @@
 spring:
   application:
     name: cloud.computing.inventory
+
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOSTNAME}:3306/${MYSQL_DATABASE}
+    password: ${MYSQL_PASSWORD}
+    username: ${MYSQL_USER}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
