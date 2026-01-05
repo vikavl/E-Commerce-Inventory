@@ -6,13 +6,14 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Embeddable
+@Entity
 @Table(name="order_item")
 public class OrderItem implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -20,14 +21,14 @@ public class OrderItem implements Serializable {
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
-    private BigDecimal quantity;
+    private int quantity;
     @Column(name="unit_price")
     private BigDecimal unitPrice;
 
     public OrderItem() {
     }
 
-    public OrderItem(Long id, Product product, Order order, BigDecimal quantity, BigDecimal unitPrice) {
+    public OrderItem(Long id, Product product, Order order, int quantity, BigDecimal unitPrice) {
         this.id = id;
         this.product = product;
         this.order = order;
@@ -53,10 +54,10 @@ public class OrderItem implements Serializable {
     public void setOrder(Order order) {
         this.order = order;
     }
-    public BigDecimal getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
-    public void setQuantity(BigDecimal quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     public BigDecimal getUnitPrice() {

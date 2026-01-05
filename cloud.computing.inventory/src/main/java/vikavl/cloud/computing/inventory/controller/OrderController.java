@@ -1,5 +1,8 @@
 package vikavl.cloud.computing.inventory.controller;
 
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vikavl.cloud.computing.inventory.dto.CreateOrderRequest;
 import vikavl.cloud.computing.inventory.dto.OrderDto;
@@ -16,12 +19,13 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    public OrderDto getProduct(@PathVariable String id) {
-        return orderService.getOrder(id);
+    public ResponseEntity<OrderDto> getOrder(@PathVariable Long id) {
+        return new ResponseEntity<>(orderService.getOrder(id), HttpStatus.FOUND);
     }
 
     @PostMapping
-    public void placeOrder(@RequestBody CreateOrderRequest createOrderRequest) {
+    public ResponseEntity<?> placeOrder(@Valid @RequestBody CreateOrderRequest createOrderRequest) {
         orderService.placeOrder(createOrderRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
