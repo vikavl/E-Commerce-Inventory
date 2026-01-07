@@ -1,13 +1,13 @@
+# Build
+FROM maven:3.9-eclipse-temurin-17 AS build
+WORKDIR /build
+COPY pom.xml .
+COPY src ./src
+RUN mvn -q -DskipTests package
+
+# Runtime
 FROM eclipse-temurin:17-jre
-
-# Create app directory
 WORKDIR /app
-
-# Copy the Spring Boot JAR file into the container
-COPY target/*.jar /app/cloud-computing-inventory.jar
-
-# Expose the port your application runs on
+COPY --from=build /build/target/*.jar /app/app.jar
 EXPOSE 8080
-
-# Define the command to run your Spring Boot application
-CMD ["java", "-jar", "/app/cloud-computing-inventory.jar"]
+ENTRYPOINT ["java","-jar","/app/app.jar"]
