@@ -20,7 +20,9 @@ public class Product implements Serializable {
     private String id;
     // Stock Keeping Unit
     private String sku;
+    @Column(length=500)
     private String name;
+    @Lob
     private String description;
     private BigDecimal price;
     @Column(name="stock_quantity")

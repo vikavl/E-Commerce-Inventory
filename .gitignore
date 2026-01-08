@@ -36,5 +36,5 @@ build/
 
 .DS_Store
 
-**.csv
+amazon.csv
 **.code-workspace
