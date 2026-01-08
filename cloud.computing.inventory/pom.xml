@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>vikavl</groupId>
 	<artifactId>cloud.computing.inventory</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.3</version>
 	<name>cloud.computing.inventory</name>
 	<description>E-Commerce Inventory Application</description>
 	<properties>
