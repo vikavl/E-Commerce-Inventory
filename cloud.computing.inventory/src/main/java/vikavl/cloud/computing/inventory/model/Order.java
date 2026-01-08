@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="order")
+@Table(name="orders")
 public class Order implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
