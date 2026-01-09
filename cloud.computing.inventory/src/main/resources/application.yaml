@@ -17,3 +17,10 @@ spring:
   sql:
     init:
       mode: never
+
+# restock random products each 5 minutes
+inventory:
+  restock:
+    enabled: ${RESTOCK_ENABLE:true}
+    products-number: ${RESTOCK_PRODUCT_NUMBER:20}
+    rate-ms: ${RESTOCK_FREQUENCY:300000}

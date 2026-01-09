@@ -22,7 +22,8 @@ public class InventoryController {
     }
 
     @GetMapping("/changes")
-    public ResponseEntity<List<InventoryChangeDto>> changes(@RequestParam int hours) {
-        return new ResponseEntity<>(service.getChangesLastHours(hours), HttpStatus.OK);
+    public ResponseEntity<List<InventoryChangeDto>> getLastStockChanges(@RequestParam int hours, @RequestParam int minutes) {
+        int totalMinutes = hours * 60 + minutes;
+        return new ResponseEntity<>(service.getLastChanges(totalMinutes), HttpStatus.OK);
     }
 }

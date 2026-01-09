@@ -31,6 +31,10 @@ public class ProductService {
         return productRepository.findAll(pageable).get().map(productMapper::toDto).toList();
     }
 
+    public List<Product> getRandomProducts(int n) {
+        return productRepository.findRandomProducts(n);
+    }
+
     public ProductDto getProduct(String id) {
         return productRepository.findById(id).map(productMapper::toDto).orElse(null);
     }
@@ -52,26 +56,19 @@ public class ProductService {
         );
     }
 
-    public List<InventoryChangeDto> getChangesLastHours(int hours) {
-        LocalDateTime since = LocalDateTime.now().minusHours(hours);
+    // for scheduled restock
+    public void updateProduct(Product product) {
+        productRepository.save(product);
+    }
 
-        // quantity of products sold in n hours
-        // <"id", "quantity">
-        Map<String, Integer> sold = new HashMap<>();
-        // unpack query response
-        for (Object[] row : orderItemRepository.sumSoldByProductSince(since)) {
-            String productId = (String) row[0];
-            Long sumQuantity = (Long) row[1];
-            sold.put(productId, sumQuantity.intValue());
-        }
+    public List<InventoryChangeDto> getLastChanges(int minutes) {
+        LocalDateTime since = LocalDateTime.now().minusMinutes(minutes);
 
-        // check current state of stock of sold items in last n hours
-        List<InventoryChangeDto> result = new ArrayList<>();
-        for (Map.Entry<String, Integer> e : sold.entrySet()) {
-            Product p = productRepository.findById(e.getKey())
-                    .orElseThrow();
-            result.add(new InventoryChangeDto(p.getId(), e.getValue(), p.getStockQuantity()));
-        }
-        return result;
+        return productRepository.findAllByUpdatedAtAfterOrderByUpdatedAtDesc(since).stream()
+                .map(product -> new InventoryChangeDto(
+                        product.getId(),
+                        product.getStockQuantity()
+                ))
+                .toList();
     }
 }
