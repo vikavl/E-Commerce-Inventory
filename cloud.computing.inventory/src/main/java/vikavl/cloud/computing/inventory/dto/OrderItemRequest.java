@@ -3,8 +3,6 @@ package vikavl.cloud.computing.inventory.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
-import java.math.BigDecimal;
-
 public class OrderItemRequest {
 
     @NotNull
