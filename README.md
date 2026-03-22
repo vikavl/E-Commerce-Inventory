@@ -20,7 +20,7 @@ As an evolutive of the application architecture it is possible to enrich it with
 ### Data Layer
 - *Type*: MySQL
 
-Data structure of the Multier Application "Inventory" is based on the existing Amazon dataset [https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset) with features relevant for the project:
+Data structure of the Multier Application "Inventory" is based on [the existing Amazon dataset](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset) with features relevant for the project:
 |Feature|Description|
 |---|---|
 |product_id|Product ID|
