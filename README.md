@@ -1,6 +1,7 @@
 # Final Project for Cloud Compiting course 2024/2025
 ## Objective
 ***Project Option 5***
+
 To deploy a scalable and high-available multitier web application that foreseen a data
 layer (a Database or an object store area). You must deploy your web application in at
 least two availability zones and configure a step scaling autoscaling policy with at least
@@ -13,7 +14,7 @@ different workload conditions
 ### Web Application Specification
 
 #### API Documentation
-Interactive API Docs: [https://github.com/vikavl/E-Commerce-Inventory](https://github.com/vikavl/E-Commerce-Inventory)
+Interactive API Docs: [https://vikavl.github.io/E-Commerce-Inventory/](https://vikavl.github.io/E-Commerce-Inventory/)
 
 
 ### Data Layer
